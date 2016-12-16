@@ -1,34 +1,43 @@
 <?php
 
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . 'src/shogunn19/Jokes/JokesApi.php';
 use shogunn19\Jokes\JokesApi;
 
 		
-$http = new \GuzzleHttp\Client(); 
+$http = new \GuzzleHttp\Client();
 
 $jokesApi = new JokesApi($http);
 
-$randJoke = $jokesApi->randJoke();
+$randJoke = $jokesApi->randomJoke();
 ?>
 
 <html>
 
-	<body>
+<body>
 
-		<h1>
-		<?php
+<h1>
+<?php
 
-		echo sprintf( 'Random joke is:<br> %s ',$randJoke);
+echo "sprintf( 'Random joke is:<br> %s ',$randJoke)";
 
-		echo "All jokes listed here";
+echo "All jokes listed here" . PHP_EOL; //end of line
 
-		$jokesStr=$jokesApi->all();
+	foreach($jokesApi->all() as $j)
+	{
+	  echo "<h2> 
+	  {
+	  $j 
+	  }</h2><br>";
+	}
+
+//$jokesStr=$jokesApi->all();
 
 
-		?>
+?>
 
-		</h1>
-	</body>
+</h1>
+</body>
 </html>
 
