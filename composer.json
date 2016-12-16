@@ -1,0 +1,14 @@
+{
+  "name": "shogunn19/zadanie"
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.3.3",
+    "guzzlehttp/guzzle": "^6.2",
+    "symfony/stopwatch": "^3.2",
+    "symfony/filesystem": "^3.2"
+  }
+}
